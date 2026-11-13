@@ -1,0 +1,12 @@
+name: Verificar Contenedor Docker
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar mi codigo
+        uses: actions/checkout@v4
+      - name: Probar que Docker construye sin errores
+        run: docker build -t prueba-ci:v1 ./proyecto-2-docker
